@@ -26,36 +26,36 @@ export default function Form() {
   }
 
   return (
-    <form action="POST" onSubmit={(e) => handleSubmit(e)} className="text-white flex flex-col w-[14rem]">
+    <form action="POST" onSubmit={(e) => handleSubmit(e)} className="text-[#ffffff] flex flex-col gap-2 bg-[rgba(0,0,0,0.2)] py-4 px-8 rounded-lg w-full max-w-[800px] text-left">
       <div className="">Name</div>
-      <input type="text" className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 text-center"/>
+      <input type="text" placeholder="Your name.." className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 mt-1"/>
 
       <div className="">Age</div>
-      <input type="number" className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 text-center"/>
+      <input type="number" placeholder="Your age.." className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 mt-1"/>
       
       <div className="">Number of Siblings On Board</div>
-      <input type="number" className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 text-center"/>
+      <input type="number" placeholder="Your name.." className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 mt-1"/>
       
       <div className="">Number of Spouses On Board</div>
-      <input type="number" className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 text-center"/>
+      <input type="number" placeholder="Your name.." className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 mt-1"/>
       
       <div className="">Number of Children On Board</div>
-      <input type="number" className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 text-center"/>
+      <input type="number" placeholder="Your name.." className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 mt-1"/>
       
       <div className="">Number of Parents On Board</div>
-      <input type="number" className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 text-center"/>
+      <input type="number" placeholder="Your name.." className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 mt-1"/>
 
       <div className="">Fare Paid</div>
-      <input type="number" className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 text-center"/>
+      <input type="number" placeholder="Your name.." className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 mt-1"/>
       
       <div className="">Passenger Class</div>
-      <input type="number" className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 text-center"/>
+      <input type="number" placeholder="Your name.." className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 mt-1"/>
       
       <div className="">Gender</div>
-      <input type="text" className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 text-center"/>
+      <input type="text" placeholder="Your name.." className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 mt-1"/>
       
       <div className="">Embarking Location</div>
-      <input type="text" className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 text-center"/>
+      <input type="text" placeholder="Your name.." className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 mt-1"/>
 
       <button className="text-black bg-white px-3 py-2 rounded-md cursor-pointer mt-8">Submit</button>
     </form>
