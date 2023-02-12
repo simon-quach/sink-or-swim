@@ -69,7 +69,9 @@ class Inferrer:
 
     def infer(self, data):
         prediction = self.predict(data)['dense_110']
+        prediction = tf.math.round(prediction)
+        # Convert to numpy array
         prediction = prediction.numpy()
-        percentage = prediction.max()
-        prediction = prediction.argmax()
-        return [int(prediction), float(percentage)]
+        # Convert to int
+        prediction = int(prediction[0][0])
+        return prediction
