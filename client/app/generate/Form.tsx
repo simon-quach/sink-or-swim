@@ -52,6 +52,7 @@ export default function Form({ setAlert }: Props) {
       passengerClass: passengerClass.value,
       sex: sex.value,
       embarkingLocation: location.value,
+      survived: "",
     }
     // axios.post("http://localhost:5000/predict", data).then((res) => {
     //   console.log(res);
