@@ -5,10 +5,6 @@ from infer import Inferrer
 import os
 import openai
 
-bot = ChatGPT()
-response = bot.ask("Hello, world")
-print(response)
-
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'

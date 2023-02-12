@@ -1,4 +1,6 @@
 import tensorflow as tf
+import numpy as np
+
 
 class Inferrer:
 
@@ -11,19 +13,28 @@ class Inferrer:
     def processData(self, data):
         ageMean = 29.3186
         ageStd = 13.2811
-        fareMean - 32.2042
+        fareMean = 32.2042
         fareStd = 49.6934
 
+        data['age'] = int(data['age'])
+        data['siblings'] = int(data['siblings'])
+        data['spouses'] = int(data['spouses'])
+        data['children'] = int(data['children'])
+        data['parents'] = int(data['parents'])
+        data['fare'] = float(data['fare'])
+        data['passengerClass'] = int(data['passengerClass'])
+
         array = []
-        array.append(data['age'] - ageMean / ageStd) # Normalized age
-        array.append(data['siblings'] + data['spouse'])
+        array.append((data['age'] - ageMean) / ageStd)  # Normalized age
+        array.append(data['siblings'] + data['spouses'])
         array.append(data['children'] + data['parents'])
-        array.append(data['fare'] - fareMean / fareStd) # Normalized fare
-        if(data['Pclass'] == 1): # I swear there is a better way to do this
+        array.append((data['fare'] - fareMean) / fareStd)  # Normalized fare
+        if (data['passengerClass'] == 1
+            ):  # I swear there is a better way to do this
             array.append(1)
             array.append(0)
             array.append(0)
-        elif(data['Pclass'] == 2):
+        elif (data['passengerClass'] == 2):
             array.append(0)
             array.append(1)
             array.append(0)
@@ -32,18 +43,18 @@ class Inferrer:
             array.append(0)
             array.append(1)
 
-        if(data['sex'] == 'male'):
+        if (data['sex'] == 'male'):
             array.append(1)
             array.append(0)
         else:
             array.append(0)
             array.append(1)
 
-        if(data['embarked'] == 'C'):
+        if (data['embarkingLocation'] == 'C'):
             array.append(1)
             array.append(0)
             array.append(0)
-        elif(data['embarked'] == 'Q'):
+        elif (data['embarkingLocation'] == 'Q'):
             array.append(0)
             array.append(1)
             array.append(0)
@@ -51,11 +62,13 @@ class Inferrer:
             array.append(0)
             array.append(0)
             array.append(1)
-        
-        return array
+        # Conver to numpy array
+        nparray = np.asarray(array, dtype=np.float32)
+        nparray = nparray.reshape(1, 12, 1)
+        return tf.convert_to_tensor(nparray)
 
     def infer(self, data):
-        prediction = self.predict(data)['dense_5']
+        prediction = self.predict(data)['dense_110']
         prediction = prediction.numpy()
         percentage = prediction.max()
         prediction = prediction.argmax()
