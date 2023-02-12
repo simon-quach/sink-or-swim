@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -12,9 +12,9 @@ export default function Home() {
             Do you want to find out the chance of you surviving the Titanic&apos;s historical event?
             Create your own story here at SOS.
           </div>
-          <button className="bg-[#373EA6] px-4 py-2 rounded-lg shadow-lg">
+          <Link href="/generate" className="bg-[rgba(0,0,0,0.2)] px-4 py-2 rounded-lg shadow-lg">
             Get started
-          </button>
+          </Link>
         </div>
       </section>
     </main>
