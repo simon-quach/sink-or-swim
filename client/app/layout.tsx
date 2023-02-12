@@ -1,4 +1,13 @@
 import './globals.css'
+import { Inter } from "@next/font/google"
+import Image from 'next/image';
+import Navbar from './Navbar';
+
+const inter = Inter({
+  weight: ['200', '400', '500', '700'],
+  subsets: ['latin'],
+  variable: '--font-inter'
+})
 
 export default function RootLayout({
   children,
@@ -12,7 +21,25 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      
+      <body className={`${inter.className} bg-[#F2F6FF] overflow-visible`}>
+        <Image 
+              src="/background.svg"
+              width={1000}
+              height={1000}
+              alt="background-image"
+              className='hidden xl:block fixed top-0 w-full z-[-1]'
+            />
+        <Image 
+          src="/background-mobile.svg"
+          width={1000}
+          height={1000}
+          alt="background-image"
+          className='xl:hidden fixed top-0 w-full z-[-1]'
+        />
+        <Navbar />
+        {children}
+      </body>
     </html>
   )
 }
