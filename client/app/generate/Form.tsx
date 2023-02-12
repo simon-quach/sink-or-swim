@@ -53,10 +53,13 @@ export default function Form({ setAlert }: Props) {
       sex: sex.value,
       embarkingLocation: location.value,
     }
-    console.log(data);
-    axios.post("http://localhost:5000/predict", data).then((res) => {
+    // axios.post("http://localhost:5000/predict", data).then((res) => {
+    //   console.log(res);
+    // })
+    data.survived = "perished";
+    axios.post("http://localhost:5000/generate", data).then((res) => {
       console.log(res);
-    })
+    });
   }
 
   return (
