@@ -18,6 +18,13 @@ inferrer = Inferrer()
 def home():
     return "Sink or Swim"
 
+@app.route("/predict", methods=["POST"])
+def predict():
+    data = request.get_json()
+    processedData = inferrer.processData(data)
+    prediction = inferrer.infer(processedData)
+    return jsonify({"prediction": prediction})
+
 @app.route("/generate", methods=["POST"])
 def generate():
     data = request.get_json()
