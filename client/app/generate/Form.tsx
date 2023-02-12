@@ -205,7 +205,7 @@ export default function Form({ setAlert }: Props) {
         <Select value={location} setValue={setLocation} options={["Southampton", "Cherbourg", "Queenstown"]}/>
       </motion.div>
       
-      <motion.button 
+      <motion.div 
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{
@@ -213,12 +213,15 @@ export default function Form({ setAlert }: Props) {
           delay: 2.1,
           ease: [0, 0.71, 0.2, 1.01]
         }}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        className="text-blue-500 bg-white transition-colors duration-200 font-bold px-3 py-2 rounded-md cursor-pointer mt-8"
       >
-        Submit
-      </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          className="text-blue-500 bg-white w-full transition-colors duration-200 font-bold px-3 py-2 rounded-md cursor-pointer mt-8"
+        >
+          Submit
+        </motion.button>
+      </motion.div>
     </form>
   )
 }
