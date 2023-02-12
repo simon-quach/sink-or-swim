@@ -50,11 +50,11 @@ class Inferrer:
             array.append(0)
             array.append(1)
 
-        if (data['embarkingLocation'] == 'C'):
+        if (data['embarkingLocation'] == 'Cherbourg'):
             array.append(1)
             array.append(0)
             array.append(0)
-        elif (data['embarkingLocation'] == 'Q'):
+        elif (data['embarkingLocation'] == 'Queenstown'):
             array.append(0)
             array.append(1)
             array.append(0)
@@ -73,5 +73,5 @@ class Inferrer:
         # Convert to numpy array
         prediction = prediction.numpy()
         # Convert to int
-        prediction = int(prediction[0][0])
+        prediction = float(prediction[0][0])
         return prediction
