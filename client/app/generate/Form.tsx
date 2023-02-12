@@ -18,11 +18,15 @@ export default function Form() {
       passengerClass: (form[7] as HTMLInputElement).value,
       sex: (form[8] as HTMLInputElement).value,
       embarkingLocation: (form[9] as HTMLInputElement).value,
+      survived: ""
     }
-    console.log(data);
-    axios.post("http://localhost:5000/predict", data).then((res) => {
+    // axios.post("http://localhost:5000/predict", data).then((res) => {
+    //   console.log(res);
+    // })
+    data.survived = "perished";
+    axios.post("http://localhost:5000/generate", data).then((res) => {
       console.log(res);
-    })
+    });
   }
 
   return (
@@ -66,9 +70,9 @@ export default function Form() {
       <div className="font-bold">Embarking Location</div>
       <select name="location" id="location" className="bg-[rgba(0,0,0,0.2)] border-[2px] border-[rgba(0,0,0,0)] focus:ring-violet-500 focus:border-violet-500 focus:outline-none text-sm rounded-lg block p-3 mt-1">
         <option value="" disabled selected>Select your embarking location..</option>
-        <option value="southampton">Southampton</option>
-        <option value="cherbourg">Cherbourg</option>
-        <option value="queenstown">Queenstown</option>
+        <option value="Southampton">Southampton</option>
+        <option value="Cherbourg">Cherbourg</option>
+        <option value="Queenstown">Queenstown</option>
       </select>
 
       <button className="text-black bg-white font-bold px-3 py-2 rounded-md cursor-pointer mt-8">Submit</button>
