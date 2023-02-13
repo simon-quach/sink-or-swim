@@ -15,6 +15,7 @@ export default function Home() {
           <Link href="/generate" className="bg-[rgba(0,0,0,0.2)] px-4 py-2 rounded-lg shadow-lg">
             Get started
           </Link>
+          <Link href="/story">Click to see your story</Link>
         </div>
       </section>
     </main>
