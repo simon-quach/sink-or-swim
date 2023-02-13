@@ -27,11 +27,13 @@ limiter = Limiter(
 
 
 @app.route("/")
+@limiter.limit("5/hour", methods=["GET"])
 def home():
     return "Sink or Swim"
 
 
 @app.route("/predict", methods=["POST"])
+@limiter.limit("5/hour", methods=["POST"])
 def predict():
     data = request.get_json()
     processedData = inferrer.processData(data)
@@ -40,6 +42,7 @@ def predict():
 
 
 @app.route("/generate", methods=["POST"])
+@limiter.limit("5/hour", methods=["POST"])
 def generate():
     data = request.get_json()
     prompt = "Write me an emotional and meaningful story about someone who " + data[
