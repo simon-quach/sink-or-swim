@@ -37,6 +37,7 @@ Our webapp is a unique blend of machine learning and storytelling, offering user
  - Integrating the machine learning model with the web development framework and language generation technology
  - Learning new Technologies such as NextJs14
  - Ensuring the webapp has a user-friendly interface that is accessible to a wide range of users
+ - Axios kept sending post requests multiple times, hit rate limit when we forgot to limit the post request to once per refresh.
 
 ## Accomplishments that we're proud of
 

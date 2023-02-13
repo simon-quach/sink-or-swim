@@ -63,6 +63,7 @@ export default function Form({setAlert}: Props) {
       sex: sex.value,
       embarkingLocation: location.value,
       survived: '',
+      rate: -1,
     };
     axios.post('http://localhost:5000/predict', data).then((res) => {
       // Generate random float between 0 and 1
@@ -70,11 +71,13 @@ export default function Form({setAlert}: Props) {
       // If the random float is less than res.data.prediction, the passenger survived
       if (random < res.data.prediction) {
         data.survived = 'survived';
+        data.rate = res.data.prediction;
         localStorage.setItem('data', JSON.stringify(data));
         router.push('/story');
         return;
       } else {
         data.survived = 'perished';
+        data.rate = res.data.prediction;
         localStorage.setItem('data', JSON.stringify(data));
         router.push('/story');
         return;
