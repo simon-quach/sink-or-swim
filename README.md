@@ -11,6 +11,20 @@ This is a hackathon project for NorCal Spring Hack 2023.
 > - Figma
 > - OpenAI GPT-3 Model
 
+**Tools used**
+
+> - Next.js
+> - TypeScript
+> - TailwindCSS
+> - Framer Motion
+> - Flask
+> - TensorFlow
+> - Keras
+> - NumPy
+> - OpenAI GPT-3 API
+
+# Hackathon Information
+
 ## Inspiration 
 
 The inspiration behind this project stems from the captivating tale of the Titanic, one of the most infamous shipwrecks in history. The disaster that occurred on April 15, 1912, took the lives of over 1500 passengers and crew members, leaving a lasting impact on the world. This tragedy has been the subject of numerous books, movies, and even a musical, all of which have kept the memory of the Titanic alive for over a century. Our team was inspired to create a webapp that uses machine learning to predict a passenger's chances of survival based on factors such as their age, gender, and socio-economic class, and then generate a unique story about their experience on the Titanic. This project combines the excitement of exploring historical events with the thrill of using cutting-edge technology to bring the past to life.
@@ -52,5 +66,5 @@ Our webapp is a unique blend of machine learning and storytelling, offering user
 
 ## What we learned
  - The importance of thorough data cleaning and preprocessing in order to train an accurate machine learning model
- - How to use NextJS 14 to create a webapp with a user-friendly interface
+ - How to use NextJS 13 to create a webapp with a user-friendly interface
  - Using Framer Motion for animations
