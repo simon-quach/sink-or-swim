@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
 interface Props {
-  setAlert: (alert: boolean) => void;
+  setAlert: React.Dispatch<React.SetStateAction<any>>;
 }
 
 export default function Form({ setAlert }: Props) {
@@ -46,7 +46,7 @@ export default function Form({ setAlert }: Props) {
         location.value
       )
     ) {
-      setAlert(true);
+      setAlert({ show: true, message: "Please fill out all the fields." });
       return;
     }
 
@@ -65,24 +65,30 @@ export default function Form({ setAlert }: Props) {
       survived: "",
       rate: -1,
     };
-    axios.post("https://titanic.hop.sh/predict", data).then((res) => {
-      // Generate random float between 0 and 1
-      const random = Math.random();
-      // If the random float is less than res.data.prediction, the passenger survived
-      if (random < res.data.prediction) {
-        data.survived = "survived";
-        data.rate = res.data.prediction;
-        localStorage.setItem("data", JSON.stringify(data));
-        router.push("/story");
-        return;
-      } else {
-        data.survived = "perished";
-        data.rate = res.data.prediction;
-        localStorage.setItem("data", JSON.stringify(data));
-        router.push("/story");
-        return;
-      }
-    });
+    axios
+      .post("https://titanic.hop.sh/predict", data)
+      .then((res) => {
+        // Generate random float between 0 and 1
+        const random = Math.random();
+        // If the random float is less than res.data.prediction, the passenger survived
+        if (random < res.data.prediction) {
+          data.survived = "survived";
+          data.rate = res.data.prediction;
+          localStorage.setItem("data", JSON.stringify(data));
+          router.push("/story");
+          return;
+        } else {
+          data.survived = "perished";
+          data.rate = res.data.prediction;
+          localStorage.setItem("data", JSON.stringify(data));
+          router.push("/story");
+          return;
+        }
+      })
+      .catch((err) => {
+        console.log(err.response.status);
+        setAlert({ show: true, message: "You have reached your limit." });
+      });
   };
 
   return (
