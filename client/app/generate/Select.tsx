@@ -1,12 +1,12 @@
-"use client" // Turns component into client-side only
+"use client"; // Turns component into client-side only
 
 import { motion, Variants } from "framer-motion";
 import { useState } from "react";
 
 // Type declations for the props
 interface Props {
-  value: { display: string, value: string },
-  setValue: (test: { display: string, value: string }) => void,
+  value: { display: string; value: string };
+  setValue: (test: { display: string; value: string }) => void;
   options: string[];
 }
 
@@ -15,9 +15,9 @@ const itemVariants: Variants = {
   open: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 24 }
+    transition: { type: "spring", stiffness: 300, damping: 24 },
   },
-  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } }
+  closed: { opacity: 0, y: 20, transition: { duration: 0.2 } },
 };
 
 export default function Select({ value, setValue, options }: Props) {
@@ -42,7 +42,7 @@ export default function Select({ value, setValue, options }: Props) {
         <motion.div
           variants={{
             open: { rotate: 180 },
-            closed: { rotate: 0 }
+            closed: { rotate: 0 },
           }}
           transition={{ duration: 0.2 }}
           style={{ originY: 0.55 }}
@@ -61,27 +61,27 @@ export default function Select({ value, setValue, options }: Props) {
               bounce: 0,
               duration: 0.7,
               delayChildren: 0.3,
-              staggerChildren: 0.05
-            }
+              staggerChildren: 0.05,
+            },
           },
           closed: {
             clipPath: "inset(10% 50% 90% 50% round 10px)",
             transition: {
               type: "spring",
               bounce: 0,
-              duration: 0.3
-            }
-          }
+              duration: 0.3,
+            },
+          },
         }}
         style={{ pointerEvents: isOpen ? "auto" : "none" }}
         className="absolute flex flex-col justify-center z-10 w-full bg-white text-blue-500 font-bold focus:ring-blue-500 focus:border-blue-500 focus:outline-none text-sm rounded-lg mt-1"
       >
         {options.map((option, index) => (
-          <motion.li 
-            variants={itemVariants} 
+          <motion.li
+            variants={itemVariants}
             onMouseDown={() => {
-              setValue({ display: option, value: option})
-              setIsOpen(false)
+              setValue({ display: option, value: option });
+              setIsOpen(false);
             }}
             className="transition-colors duration-200 cursor-pointer p-4 hover:bg-blue-100"
             key={index}
@@ -89,8 +89,7 @@ export default function Select({ value, setValue, options }: Props) {
             {option}
           </motion.li>
         ))}
-        
       </motion.ul>
     </motion.div>
-  )
+  );
 }

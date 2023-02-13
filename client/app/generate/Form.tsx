@@ -1,27 +1,27 @@
-'use client'; // Turns component into client-side only
+"use client"; // Turns component into client-side only
 
-import axios from 'axios';
-import {useState} from 'react';
-import Select from './Select';
-import {motion} from 'framer-motion';
-import {useRouter} from 'next/router';
+import axios from "axios";
+import { useState } from "react";
+import Select from "./Select";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 interface Props {
   setAlert: (alert: boolean) => void;
 }
 
-export default function Form({setAlert}: Props) {
+export default function Form({ setAlert }: Props) {
   // STATES
   const router = useRouter();
   // States for the select components
   const [passengerClass, setPassengerClass] = useState({
-    display: 'Select your passenger class..',
-    value: '',
+    display: "Select your passenger class..",
+    value: "",
   });
-  const [sex, setSex] = useState({display: 'Select your sex..', value: ''});
+  const [sex, setSex] = useState({ display: "Select your sex..", value: "" });
   const [location, setLocation] = useState({
-    display: 'Select your embarking location..',
-    value: '',
+    display: "Select your embarking location..",
+    value: "",
   });
 
   // FUNCTIONS
@@ -62,21 +62,21 @@ export default function Form({setAlert}: Props) {
       passengerClass: passengerClass.value,
       sex: sex.value,
       embarkingLocation: location.value,
-      survived: '',
+      survived: "",
     };
-    axios.post('http://localhost:5000/predict', data).then((res) => {
+    axios.post("https://titanic.hop.sh/predict", data).then((res) => {
       // Generate random float between 0 and 1
       const random = Math.random();
       // If the random float is less than res.data.prediction, the passenger survived
       if (random < res.data.prediction) {
-        data.survived = 'survived';
-        localStorage.setItem('data', JSON.stringify(data));
-        router.push('/story');
+        data.survived = "survived";
+        localStorage.setItem("data", JSON.stringify(data));
+        router.push("/story");
         return;
       } else {
-        data.survived = 'perished';
-        localStorage.setItem('data', JSON.stringify(data));
-        router.push('/story');
+        data.survived = "perished";
+        localStorage.setItem("data", JSON.stringify(data));
+        router.push("/story");
         return;
       }
     });
@@ -90,8 +90,8 @@ export default function Form({setAlert}: Props) {
     >
       <motion.div
         className="w-full"
-        initial={{opacity: 0, scale: 0.5}}
-        animate={{opacity: 1, scale: 1}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
           delay: 1.1,
@@ -107,8 +107,8 @@ export default function Form({setAlert}: Props) {
       </motion.div>
 
       <motion.div
-        initial={{opacity: 0, scale: 0.5}}
-        animate={{opacity: 1, scale: 1}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
           delay: 1.2,
@@ -125,8 +125,8 @@ export default function Form({setAlert}: Props) {
       </motion.div>
 
       <motion.div
-        initial={{opacity: 0, scale: 0.5}}
-        animate={{opacity: 1, scale: 1}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
           delay: 1.3,
@@ -143,8 +143,8 @@ export default function Form({setAlert}: Props) {
       </motion.div>
 
       <motion.div
-        initial={{opacity: 0, scale: 0.5}}
-        animate={{opacity: 1, scale: 1}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
           delay: 1.4,
@@ -161,8 +161,8 @@ export default function Form({setAlert}: Props) {
       </motion.div>
 
       <motion.div
-        initial={{opacity: 0, scale: 0.5}}
-        animate={{opacity: 1, scale: 1}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
           delay: 1.5,
@@ -179,8 +179,8 @@ export default function Form({setAlert}: Props) {
       </motion.div>
 
       <motion.div
-        initial={{opacity: 0, scale: 0.5}}
-        animate={{opacity: 1, scale: 1}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
           delay: 1.6,
@@ -197,8 +197,8 @@ export default function Form({setAlert}: Props) {
       </motion.div>
 
       <motion.div
-        initial={{opacity: 0, scale: 0.5}}
-        animate={{opacity: 1, scale: 1}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
           delay: 1.7,
@@ -215,8 +215,8 @@ export default function Form({setAlert}: Props) {
       </motion.div>
 
       <motion.div
-        initial={{opacity: 0, scale: 0.5}}
-        animate={{opacity: 1, scale: 1}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
           delay: 1.8,
@@ -228,13 +228,13 @@ export default function Form({setAlert}: Props) {
         <Select
           value={passengerClass}
           setValue={setPassengerClass}
-          options={['1', '2', '3']}
+          options={["1", "2", "3"]}
         />
       </motion.div>
 
       <motion.div
-        initial={{opacity: 0, scale: 0.5}}
-        animate={{opacity: 1, scale: 1}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
           delay: 1.9,
@@ -243,12 +243,12 @@ export default function Form({setAlert}: Props) {
         className="w-full"
       >
         <div className="font-bold">Sex</div>
-        <Select value={sex} setValue={setSex} options={['Male', 'Female']} />
+        <Select value={sex} setValue={setSex} options={["Male", "Female"]} />
       </motion.div>
 
       <motion.div
-        initial={{opacity: 0, scale: 0.5}}
-        animate={{opacity: 1, scale: 1}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
           delay: 2,
@@ -260,13 +260,13 @@ export default function Form({setAlert}: Props) {
         <Select
           value={location}
           setValue={setLocation}
-          options={['Southampton', 'Cherbourg', 'Queenstown']}
+          options={["Southampton", "Cherbourg", "Queenstown"]}
         />
       </motion.div>
 
       <motion.div
-        initial={{opacity: 0, scale: 0.5}}
-        animate={{opacity: 1, scale: 1}}
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{
           duration: 1,
           delay: 2.1,
@@ -274,8 +274,8 @@ export default function Form({setAlert}: Props) {
         }}
       >
         <motion.button
-          whileHover={{scale: 1.02}}
-          whileTap={{scale: 0.98}}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           className="text-blue-500 bg-white w-full transition-colors duration-200 font-bold px-3 py-2 rounded-md cursor-pointer mt-8"
         >
           Submit
