@@ -1,7 +1,7 @@
-'use client'; // Turns component into client-side only
+"use client"; // Turns component into client-side only
 
-import Link from 'next/link';
-import {motion} from 'framer-motion';
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -9,8 +9,8 @@ export default function Home() {
       <section className="w-full flex justify-center">
         <div className="text-white flex flex-col items-center mt-[30%] xl:mt-[10%] gap-6 w-[80%] xl:w-[50%]">
           <motion.main
-            initial={{opacity: 0, scale: 0.5}}
-            animate={{opacity: 1, scale: 1}}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{
               duration: 2,
               delay: 0.5,
@@ -21,8 +21,8 @@ export default function Home() {
             Discover your own story
           </motion.main>
           <motion.div
-            initial={{opacity: 0, scale: 0.5}}
-            animate={{opacity: 1, scale: 1}}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{
               duration: 2,
               delay: 1.5,
@@ -34,15 +34,15 @@ export default function Home() {
             Titanic&apos;s historical event? Create your own story here at SOS.
           </motion.div>
           <motion.div
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{
               duration: 2,
               delay: 2.5,
               ease: [0, 0.71, 0.2, 1.01],
             }}
           >
-            <motion.div whileHover={{scale: 1.05}} whileTap={{scale: 0.95}}>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 href="/generate"
                 className="bg-[rgba(0,0,0,0.2)] px-4 py-2 rounded-lg shadow-lg"
