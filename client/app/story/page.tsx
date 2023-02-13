@@ -42,7 +42,7 @@ export default function Story() {
   return (
     <section className="w-full flex flex-col justify-center items-center text-center cursor-default text-white">
       {generating ? (
-        <div className="mt-[30%] xl:mt-[5%] mb-[4rem] gap-6 w-[80%] xl:w-[80%] max-w-[1000px]">
+        <div className="mt-[30%] xl:mt-[5%] gap-6 w-[80%] xl:w-[80%] max-w-[1000px]">
           <motion.main
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -81,7 +81,7 @@ export default function Story() {
           ></motion.div>
         </div>
       ) : (
-        <div className="mt-[30%] xl:mt-[5%] gap-6 w-[80%] xl:w-[80%] max-w-[1000px]">
+        <div className="mt-[30%] xl:mt-[5%] gap-6  mb-[4rem] w-[80%] xl:w-[80%] max-w-[1000px]">
           <motion.main
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
