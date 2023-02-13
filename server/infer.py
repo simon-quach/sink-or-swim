@@ -69,7 +69,7 @@ class Inferrer:
 
     def infer(self, data):
         prediction = self.predict(data)['dense_110']
-        prediction = tf.math.round(prediction)
+        print(prediction)
         # Convert to numpy array
         prediction = prediction.numpy()
         # Convert to int
