@@ -3,6 +3,8 @@ This is a hackathon project for NorCal Spring Hack 2023.
 
 **Contributors:** [@IdkwhatImD0ing](https://github.com/IdkwhatImD0ing) [@simon-quach](https://github.com/simon-quach) [@triquenguyen](https://github.com/triquenguyen)
 
+[Demo Video](https://www.youtube.com/watch?v=4V-2l-Zel5s)
+
 **The purpose of this project is to practice concepts related to:**
 
 > - Next.js
