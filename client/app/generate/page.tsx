@@ -1,9 +1,9 @@
-"use client"; // Turns component into client-side only
+'use client'; // Turns component into client-side only
 
-import Form from "./Form";
-import Alert from "./Alert";
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import Form from './Form';
+import Alert from './Alert';
+import {useState, useEffect} from 'react';
+import {motion} from 'framer-motion';
 
 interface AlertState {
   show: boolean;
@@ -11,10 +11,10 @@ interface AlertState {
 }
 
 export default function Generate() {
-  const [alert, setAlert] = useState<AlertState>({ show: false, message: "" });
+  const [alert, setAlert] = useState<AlertState>({show: false, message: ''});
 
   useEffect(() => {
-    localStorage.setItem("started", "false");
+    localStorage.setItem('started', 'false');
   });
 
   return (
@@ -23,8 +23,8 @@ export default function Generate() {
       <div className="text-white flex flex-col xl:flex-row items-center xl:items-start justify-around mt-[10%] mb-[4rem] xl:mt-[5%] gap-6 xl:gap-20 w-[80%] xl:w-[90%]">
         <div className="flex flex-col gap-4 xl:mt-[10%]">
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{opacity: 0, scale: 0.5}}
+            animate={{opacity: 1, scale: 1}}
             transition={{
               duration: 2,
               delay: 0,
@@ -35,8 +35,8 @@ export default function Generate() {
             Generate your story
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{opacity: 0, scale: 0.5}}
+            animate={{opacity: 1, scale: 1}}
             transition={{
               duration: 2,
               delay: 0.5,
@@ -46,10 +46,23 @@ export default function Generate() {
           >
             Enter your information to create your own story on the Titanic.
           </motion.div>
+          <motion.div
+            initial={{opacity: 0, scale: 0.5}}
+            animate={{opacity: 1, scale: 1}}
+            transition={{
+              duration: 2,
+              delay: 1,
+              ease: [0, 0.71, 0.2, 1.01],
+            }}
+            className="text-[8px] sm:text-[12px] drop-shadow-2xl"
+          >
+            Disclaimer: You are limited to five stories per hour and 25 stories
+            per day.
+          </motion.div>
         </div>
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{opacity: 0, scale: 0.5}}
+          animate={{opacity: 1, scale: 1}}
           transition={{
             duration: 1,
             delay: 1,
