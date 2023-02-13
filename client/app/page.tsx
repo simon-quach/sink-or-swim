@@ -32,11 +32,6 @@ export default function Home() {
           >
             Do you want to find out the chance of you surviving the Titanic&apos;s historical event?
             Create your own story here at SOS.
-          </div>
-          <Link href="/generate" className="bg-[rgba(0,0,0,0.2)] px-4 py-2 rounded-lg shadow-lg">
-            Get started
-          </Link>
-          <Link href="/story">Click to see your story</Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
