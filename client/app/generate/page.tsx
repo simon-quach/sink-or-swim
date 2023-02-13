@@ -5,8 +5,13 @@ import Alert from "./Alert";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
+interface AlertState {
+  show: boolean;
+  message: string;
+}
+
 export default function Generate() {
-  const [alert, setAlert] = useState(false);
+  const [alert, setAlert] = useState<AlertState>({ show: false, message: "" });
 
   useEffect(() => {
     localStorage.setItem("started", "false");
@@ -14,7 +19,7 @@ export default function Generate() {
 
   return (
     <section className="w-full flex flex-col justify-center items-center text-center cursor-default">
-      {alert && <Alert setAlert={setAlert}></Alert>}
+      {alert.show && <Alert alert={alert} setAlert={setAlert}></Alert>}
       <div className="text-white flex flex-col xl:flex-row items-center xl:items-start justify-around mt-[10%] mb-[4rem] xl:mt-[5%] gap-6 xl:gap-20 w-[80%] xl:w-[90%]">
         <div className="flex flex-col gap-4 xl:mt-[10%]">
           <motion.div

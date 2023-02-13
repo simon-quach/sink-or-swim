@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 
 interface Props {
-  setAlert: (alert: boolean) => void;
+  setAlert: React.Dispatch<React.SetStateAction<any>>;
 }
 
 export default function Form({ setAlert }: Props) {
@@ -46,7 +46,7 @@ export default function Form({ setAlert }: Props) {
         location.value
       )
     ) {
-      setAlert(true);
+      setAlert({ show: true, message: "Please fill out all the fields." });
       return;
     }
 
@@ -86,7 +86,8 @@ export default function Form({ setAlert }: Props) {
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.status);
+        setAlert({ show: true, message: "You have reached your limit." });
       });
   };
 
