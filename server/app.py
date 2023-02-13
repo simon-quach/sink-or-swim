@@ -4,14 +4,26 @@ from flask_cors import CORS
 from infer import Inferrer
 from dotenv import load_dotenv
 import os
-import openai   
+import openai
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address   
 
+# OpenAi
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
+
+#Flask
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 inferrer = Inferrer()
+
+# Limiter Code
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["25 per day", "5 per hour"],
+)
 
 
 @app.route("/")
