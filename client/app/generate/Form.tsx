@@ -62,7 +62,7 @@ export default function Form({ setAlert }: Props) {
       passengerClass: passengerClass.value,
       sex: sex.value,
       embarkingLocation: location.value,
-      survived: '',
+      survived: "",
       rate: -1,
     };
     axios.post("https://titanic.hop.sh/predict", data).then((res) => {
@@ -70,16 +70,16 @@ export default function Form({ setAlert }: Props) {
       const random = Math.random();
       // If the random float is less than res.data.prediction, the passenger survived
       if (random < res.data.prediction) {
-        data.survived = 'survived';
+        data.survived = "survived";
         data.rate = res.data.prediction;
-        localStorage.setItem('data', JSON.stringify(data));
-        router.push('/story');
+        localStorage.setItem("data", JSON.stringify(data));
+        router.push("/story");
         return;
       } else {
-        data.survived = 'perished';
+        data.survived = "perished";
         data.rate = res.data.prediction;
-        localStorage.setItem('data', JSON.stringify(data));
-        router.push('/story');
+        localStorage.setItem("data", JSON.stringify(data));
+        router.push("/story");
         return;
       }
     });

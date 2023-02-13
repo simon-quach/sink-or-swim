@@ -7,9 +7,13 @@ import { useState, useEffect } from "react";
 import "./page.css";
 
 export default function Story() {
+  // STATES
   const [story, setStory] = useState([]);
   const [generating, setGenerating] = useState(true);
+  const [rate, setRate] = useState(0);
+  const [loadingMessage, setLoadingMessage] = useState(false);
 
+  // EFFECTS
   useEffect(() => {
     const storyJson: string =
       localStorage.getItem("data") == null
@@ -22,6 +26,7 @@ export default function Story() {
         .then((res) => {
           console.log(res.data.response);
           setStory(res.data.response.trimStart().split("\n"));
+          setRate(JSON.parse(storyJson).rate);
           setGenerating(false);
         })
         .catch((err) => {
@@ -29,6 +34,10 @@ export default function Story() {
         });
     }
   }, []);
+
+  setTimeout(() => {
+    setLoadingMessage(true);
+  }, 10000);
 
   return (
     <section className="w-full flex flex-col justify-center items-center text-center cursor-default text-white">
@@ -46,6 +55,20 @@ export default function Story() {
           >
             Loading your titanic story...
           </motion.main>
+          {loadingMessage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 2,
+                delay: 0,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+              className="text-white italic mt-2"
+            >
+              This may take up to 2 minutes...
+            </motion.div>
+          )}
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -91,6 +114,9 @@ export default function Story() {
                 for (let i = 1; i < story.length; i++) {
                   typewriter.pauseFor(1000).typeString("\n" + story[i]);
                 }
+                typewriter
+                  .pauseFor(1000)
+                  .typeString(`\n\nSurvival Rate: ${(rate * 100).toFixed(2)}%`);
               }}
             />
           </motion.div>
