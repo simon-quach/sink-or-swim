@@ -1,5 +1,5 @@
 # Sink Or Swim (SOS)
-This is a hackathon project for NorCal Spring Hack 2023.
+Winner at NorCal Spring Hack 2023.
 
 **Contributors:** [@IdkwhatImD0ing](https://github.com/IdkwhatImD0ing) [@simon-quach](https://github.com/simon-quach) [@triquenguyen](https://github.com/triquenguyen)
 
