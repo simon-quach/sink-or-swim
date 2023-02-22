@@ -51,7 +51,7 @@ Our webapp is a unique blend of machine learning and storytelling, offering user
  - Cleaning and preprocessing the Kaggle Titanic dataset to ensure accurate predictions from the machine learning model
  - Balancing the trade-off between making the machine learning model accurate and keeping it computationally efficient
  - Integrating the machine learning model with the web development framework and language generation technology
- - Learning new Technologies such as NextJs14
+ - Learning new Technologies such as Next.js 13
  - Ensuring the webapp has a user-friendly interface that is accessible to a wide range of users
  - Axios kept sending post requests multiple times, hit rate limit when we forgot to limit the post request to once per refresh.
 
@@ -68,5 +68,5 @@ Our webapp is a unique blend of machine learning and storytelling, offering user
 
 ## What we learned
  - The importance of thorough data cleaning and preprocessing in order to train an accurate machine learning model
- - How to use NextJS 13 to create a webapp with a user-friendly interface
+ - How to use Next.js 13 to create a webapp with a user-friendly interface
  - Using Framer Motion for animations
