@@ -42,7 +42,7 @@ Our webapp is a unique blend of machine learning and storytelling, offering user
  - Kaggle Titanic dataset
  - OpenAI language generation technology
  - HTML/Tailwind CSS
- - NextJs14
+ - Next.js 13
  - Flask
  - Machine learning libraries such as TensorFlow, PyTorch, and scikit-learn
 
