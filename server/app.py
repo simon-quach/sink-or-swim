@@ -55,15 +55,15 @@ def generate():
             "embarkingLocation"] + " Gender: " + data[
                 "sex"] + " Age: " + data[
                     "age"] + " Passenger Class: " + data["passengerClass"]
-    response = openai.Completion.create(model="gpt-4",
-                                        prompt=prompt,
+    response = openai.ChatCompletion.create(model="gpt-4",
+                                        messages=[{"role": "user", "content":prompt}],
                                         temperature=0.7,
                                         max_tokens=1000,
                                         top_p=1,
                                         frequency_penalty=0.5,
                                         presence_penalty=0.5)
 
-    return jsonify({"response": response["choices"][0]["text"]})
+    return jsonify({"response": response.choices[0].message.content})
 
 
 if __name__ == "__main__":
