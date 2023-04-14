@@ -218,7 +218,7 @@ export default function Form({ setAlert }: Props) {
         <div className="font-bold">Fare Paid</div>
         <input
           type="number"
-          placeholder="Your fair paid.."
+          placeholder="Your fare paid.."
           className="bg-[rgba(0,0,0,0.2)] w-full border-[2px] border-[rgba(0,0,0,0)] focus:ring-blue-500 focus:border-blue-500 focus:outline-none text-sm rounded-lg block p-3 mt-1"
         />
       </motion.div>

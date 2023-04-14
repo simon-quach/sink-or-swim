@@ -1,5 +1,5 @@
 # Sink Or Swim (SOS)
-This is a hackathon project for NorCal Spring Hack 2023.
+Winner at NorCal Spring Hack 2023.
 
 **Contributors:** [@IdkwhatImD0ing](https://github.com/IdkwhatImD0ing) [@simon-quach](https://github.com/simon-quach) [@triquenguyen](https://github.com/triquenguyen)
 
@@ -42,7 +42,7 @@ Our webapp is a unique blend of machine learning and storytelling, offering user
  - Kaggle Titanic dataset
  - OpenAI language generation technology
  - HTML/Tailwind CSS
- - NextJs14
+ - Next.js 13
  - Flask
  - Machine learning libraries such as TensorFlow, PyTorch, and scikit-learn
 
@@ -51,7 +51,7 @@ Our webapp is a unique blend of machine learning and storytelling, offering user
  - Cleaning and preprocessing the Kaggle Titanic dataset to ensure accurate predictions from the machine learning model
  - Balancing the trade-off between making the machine learning model accurate and keeping it computationally efficient
  - Integrating the machine learning model with the web development framework and language generation technology
- - Learning new Technologies such as NextJs14
+ - Learning new Technologies such as Next.js 13
  - Ensuring the webapp has a user-friendly interface that is accessible to a wide range of users
  - Axios kept sending post requests multiple times, hit rate limit when we forgot to limit the post request to once per refresh.
 
@@ -68,5 +68,5 @@ Our webapp is a unique blend of machine learning and storytelling, offering user
 
 ## What we learned
  - The importance of thorough data cleaning and preprocessing in order to train an accurate machine learning model
- - How to use NextJS 13 to create a webapp with a user-friendly interface
+ - How to use Next.js 13 to create a webapp with a user-friendly interface
  - Using Framer Motion for animations
