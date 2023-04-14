@@ -2,7 +2,7 @@
 
 FROM python:3.10-slim-buster
 
-WORKDIR /python-docker
+WORKDIR /sinkorswim
 
 RUN apt-get update
 RUN apt-get install python3-opencv libgl1-mesa-glx libgl1 -y

@@ -55,7 +55,7 @@ def generate():
             "embarkingLocation"] + " Gender: " + data[
                 "sex"] + " Age: " + data[
                     "age"] + " Passenger Class: " + data["passengerClass"]
-    response = openai.Completion.create(model="text-davinci-003",
+    response = openai.Completion.create(model="gpt-4",
                                         prompt=prompt,
                                         temperature=0.7,
                                         max_tokens=1000,
@@ -67,4 +67,4 @@ def generate():
 
 
 if __name__ == "__main__":
-    app.run(host="localhost", port=5000)
+    app.run(host="localhost", port=3000)
