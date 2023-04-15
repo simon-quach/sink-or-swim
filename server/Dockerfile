@@ -11,7 +11,7 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Copy your certificate, private key, and CA files
 COPY cert.pem /etc/ssl/certs/cert.pem
-COPY private.pem /etc/ssl/private/private_key.pem
+COPY private.pem /etc/ssl/private/private.pem
 COPY ca.pem /etc/ssl/certs/ca.pem
 
 # Copy the Flask app and requirements
