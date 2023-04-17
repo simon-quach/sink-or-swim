@@ -6,7 +6,9 @@ from dotenv import load_dotenv
 import os
 import openai
 from flask_limiter import Limiter
-from flask_limiter.util import get_remote_address   
+from flask_limiter.util import get_remote_address
+import asyncio
+import aiohttp   
 
 # OpenAi
 load_dotenv()
@@ -43,7 +45,7 @@ def predict():
 
 @app.route("/generate", methods=["POST"])
 @limiter.limit("5/hour", methods=["POST"])
-def generate():
+async def generate():
     data = request.get_json()
     prompt = "Write me an emotional and meaningful story about someone who " + data[
         "survived"] + " on the Titanic with the following information: "
@@ -55,7 +57,7 @@ def generate():
             "embarkingLocation"] + " Gender: " + data[
                 "sex"] + " Age: " + data[
                     "age"] + " Passenger Class: " + data["passengerClass"]
-    response = openai.ChatCompletion.create(model="gpt-4",
+    response = await openai.ChatCompletion.acreate(model="gpt-3.5-turbo",
                                         messages=[{"role": "user", "content":prompt}],
                                         temperature=0.7,
                                         max_tokens=1000,
