@@ -15,10 +15,10 @@
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header Access-Control-Allow-Origin $http_origin;
-        proxy_set_header Access-Control-Allow-Methods "GET, POST, OPTIONS";
-        proxy_set_header Access-Control-Allow-Headers "DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range";
-        proxy_set_header Access-Control-Expos-Headers "Content-Length,Content-Range";
+        proxy_set_header Access-Control-Allow-Origin $http_access_control_allow_origin;
+        proxy_set_header Access-Control-Allow-Methods $http_access_control_allow_methods;
+        proxy_set_header Access-Control-Allow-Headers $http_access_control_allow_headers;
+        proxy_set_header Access-Control-Expose-Headers $http_access_control_expose_headers;
         proxy_read_timeout 300;
         proxy_connect_timeout 300;
     }

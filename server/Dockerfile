@@ -6,8 +6,7 @@ WORKDIR /sinkorswim
 
 # Install dependencies
 RUN apt-get update
-RUN apt-get install -y python3-opencv libgl1-mesa-glx libgl1 nginx supervisor
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN apt-get install -y python3-opencv libgl1-mesa-glx libgl1 
 
 # Copy your certificate, private key, and CA files
 COPY cert.pem /etc/ssl/certs/cert.pem
@@ -20,10 +19,7 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 
-# Configure Nginx
-RUN rm /etc/nginx/sites-enabled/default
-COPY nginx_config /etc/nginx/sites-available/sinkorswim
-RUN ln -s /etc/nginx/sites-available/sinkorswim /etc/nginx/sites-enabled/
+EXPOSE 4000
 
 # Run the application
-CMD ["/usr/bin/supervisord"]
+CMD ["gunicorn", "--workers", "1", "--bind", "0.0.0.0:4000", "app:app", "--timeout", "300"]

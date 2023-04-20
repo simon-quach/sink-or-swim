@@ -49,7 +49,6 @@ export default function Form({setAlert}: Props) {
       setAlert({show: true, message: 'Please fill out all the fields.'})
       return
     }
-
     // Creates an object with the data from the form
     let data = {
       name: (form[0] as HTMLInputElement).value,
@@ -66,7 +65,7 @@ export default function Form({setAlert}: Props) {
       rate: -1,
     }
     axios
-      .post('https://api.art3m1s.me:3050/predict', data)
+      .post('https://api.art3m1s.me/sos/predict', data)
       .then((res) => {
         // Generate random float between 0 and 1
         const random = Math.random()

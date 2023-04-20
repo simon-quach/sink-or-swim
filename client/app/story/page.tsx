@@ -22,7 +22,7 @@ export default function Story() {
     if (localStorage.getItem('started') === 'false') {
       localStorage.setItem('started', 'true')
       axios
-        .post('https://api.art3m1s.me:3050/generate', JSON.parse(storyJson))
+        .post('https://api.art3m1s.me/sos/generate', JSON.parse(storyJson))
         .then((res) => {
           setStory(res.data.response.trimStart().split('\n'))
           setRate(JSON.parse(storyJson).rate)
