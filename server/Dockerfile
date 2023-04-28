@@ -1,12 +1,8 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.10-slim-buster
+FROM 192.168.0.147:5000/shared
 
 WORKDIR /sinkorswim
-
-# Install dependencies
-RUN apt-get update
-RUN apt-get install -y python3-opencv libgl1-mesa-glx libgl1 
 
 # Copy your certificate, private key, and CA files
 COPY cert.pem /etc/ssl/certs/cert.pem
